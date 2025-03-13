@@ -7,7 +7,7 @@
 
     var mongoose = require('mongoose');
 
-    var mongodbConfig = require('../../config/mongodb/mongodb-config').mongodb;
+    var mongodbConfig = require('../../mongodb/mongodb-config.json').mongodb;
 
     function init() {
         var options = {

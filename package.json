@@ -1,0 +1,30 @@
+{
+  "name": "apiexpress",
+  "version": "1.0.0",
+  "description": "## Por este medio se orienta la actividad colaborativa \"Api-Express\", a partir de una plantilla dada por el profesor. La actividad consiste en:",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claseBD/apiExpress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claseBD/apiExpress/issues"
+  },
+  "homepage": "https://github.com/claseBD/apiExpress#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cookie-parser": "^1.4.7",
+    "http-errors": "^2.0.0",
+    "moongose": "^1.0.0",
+    "morgan": "^1.10.0"
+  }
+}
