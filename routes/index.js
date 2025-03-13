@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });*/
 // index page
-router.get('/', function(req, res, next) {
+router.get('/view', function(req, res, next) {
     res.render('pages/index');
 });
 

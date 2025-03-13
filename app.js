@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var router = require("./routes/index");
 
 var app = express();
 
@@ -14,10 +15,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.set('view engine', 'ejs');
 
 MongoDBUtil.init();
 
 app.use('/users', UserController);
+app.use(router);
 
 app.get('/', function (req, res) {
     var pkg = require(path.join(__dirname, 'package.json'));
@@ -47,5 +50,7 @@ app.use(function (err, req, res, next) {
         error: res.locals.error
     });
 });
+
+app.listen(3000, () => {console.log("Running on Port: 3000")});
 
 module.exports = app;
