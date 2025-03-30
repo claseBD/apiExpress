@@ -1,32 +1,33 @@
-(function (){
-    var mongoose = require('mongoose');
-    var Schema = mongoose.Schema;
+(function () {
+  var mongoose = require("mongoose");
 
-    var OrderSchema = new mongoose.Schema({
-        orderId:{
-            type: mongoose.Schema.Types.ObjectId,
-            require: true
-        },
-        products:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "menuItems",
-            require:true
-        },
-        totalAmount: {
-            type: Number,
-            required: true,
-        },
-        phoneNumber:{
-            type:Number,
-            require:true
-        },
-        address:{type:String},
-        city:{type:String},
-        state:{type:String},
-        zipCode:{type:String}
-    });
-    module.exports = mongoose.model('order', orderSchema);
-});
+  var Schema = mongoose.Schema;
 
+  var OrderSchema = new Schema({
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      require: true,
+    },
+    products: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "menuItems",
+        required: true,
+      },
+    ],
+    total: {
+      type: Number,
+      required: true,
+    },
+    phoneNumber: {
+      type: Number,
+      required: true,
+    },
+    address: String,
+    city: String,
+    state: String,
+    zipCode: String,
+  });
 
-
+  module.exports = mongoose.model("orders", OrderSchema);
+})();

@@ -1,42 +1,80 @@
 (function () {
-    "use strict";
+  "use strict";
 
-    const OrderService = require("./order.module")().OrderService;
+  module.exports = {
+    addOrder: addOrder,
+    getOrders: getOrders,
+    getOrderById: getOrderById,
+    modifyOrder: modifyOrder,
+    removeOrder: removeOrder,
+  };
 
-    module.exports = {
-        addOrder,
-        getOrders,
-        getOrderById,
-        modifyOrder,
-        removeOrder
-    };
+  var OrderService = require("./order.module")().OrderService;
 
-    function handleRequest(promise, req, next) {
-        promise
-            .then(data => {
-                req.response = data;
-                next();
-            })
-            .catch(next);
+  function addOrder(req, res, next) {
+    OrderService.createOrder(req.body).then(success).catch(failure);
+
+    function success(data) {
+      req.response = data;
+      next();
     }
 
-    function addOrder(req, res, next) {
-        handleRequest(OrderService.createOrder(req.body), req, next);
+    function failure(error) {
+      next(error);
+    }
+  }
+
+  function getOrders(req, res, next) {
+    OrderService.fetchOrders().then(success).catch(failure);
+
+    function success(data) {
+      req.response = data;
+      next();
     }
 
-    function getOrders(req, res, next) {
-        handleRequest(OrderService.getOrders(), req, next);
+    function failure(err) {
+      next(err);
+    }
+  }
+
+  function getOrderById(req, res, next) {
+    OrderService.fetchOrders(req.params.userId).then(success).catch(failure);
+
+    function success(data) {
+      req.response = data;
+      next();
     }
 
-    function getOrderById(req, res, next) {
-        handleRequest(OrderService.fetchOrders(req.params.userId), req, next);
+    function failure(err) {
+      next(err);
+    }
+  }
+
+  function modifyOrder(req, res, next) {
+    OrderService.updateOrder(req.params.userId, req.body)
+      .then(success)
+      .catch(error);
+
+    function success(data) {
+      req.response = data;
+      next();
     }
 
-    function modifyOrder(req, res, next) {
-        handleRequest(OrderService.updateOrder(req.params.userId, req.body), req, next);
+    function error(err) {
+      next(err);
+    }
+  }
+
+  function removeOrder(req, res, next) {
+    OrderService.deleteOrder(req.params.userId).then(success).catch(error);
+
+    function success(data) {
+      req.response = data;
+      next();
     }
 
-    function removeOrder(req, res, next) {
-        handleRequest(OrderService.deleteOrder(req.params.userId), req, next);
+    function error(err) {
+      next(err);
     }
+  }
 })();
