@@ -20,6 +20,7 @@
     }
 
     function failure(error) {
+      console.error(error);
       next(error);
     }
   }
