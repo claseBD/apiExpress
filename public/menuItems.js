@@ -72,6 +72,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    if (
+      e.target.classList.contains("add-to-cart-btn") ||
+      e.target.closest(".add-to-cart-btn")
+    ) {
+      const button = e.target.classList.contains("add-to-cart-btn")
+        ? e.target
+        : e.target.closest(".add-to-cart-btn");
+      const itemId = button.dataset.id;
+      const itemCard = button.closest(".card");
+
+      const item = {
+        id: itemId,
+        name: itemCard.querySelector(".card-title").textContent,
+        price: parseFloat(
+          itemCard.querySelector(".badge").textContent.replace("$", ""),
+        ),
+        quantity: 1,
+      };
+
+      addToCart(item);
+    }
+
     // Edit button
     if (
       e.target.classList.contains("edit-btn") ||
@@ -258,4 +280,121 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error resetting form:", error);
     }
   }
+
+  let cart = [];
+  const cartCount = document.getElementById("cart-count");
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  function addToCart(item) {
+    // Check if item already exists in cart
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push(item);
+    }
+
+    updateCartUI();
+    showToast(`${item.name} added to cart!`);
+  }
+
+  function updateCartUI() {
+    // Update cart count
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = totalItems;
+    cartCount.style.display = totalItems > 0 ? "inline-block" : "none";
+
+    // Update cart items list
+    if (cart.length === 0) {
+      cartItems.innerHTML =
+        '<div class="text-center py-3 text-muted">Your cart is empty</div>';
+      cartTotal.textContent = "$0.00";
+      checkoutBtn.disabled = true;
+      return;
+    }
+
+    checkoutBtn.disabled = false;
+
+    let html = "";
+    let total = 0;
+
+    cart.forEach((item) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      html += `
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div>
+            <h6 class="mb-0">${item.name}</h6>
+            <small class="text-muted">$${item.price.toFixed(2)} × ${item.quantity}</small>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2">$${itemTotal.toFixed(2)}</span>
+            <button class="btn btn-sm btn-outline-danger remove-item" data-id="${item.id}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartItems.innerHTML = html;
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+
+    // Add event listeners for remove buttons
+    document.querySelectorAll(".remove-item").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const itemId = e.currentTarget.dataset.id;
+        removeFromCart(itemId);
+      });
+    });
+  }
+
+  function removeFromCart(itemId) {
+    cart = cart.filter((item) => item.id !== itemId);
+    updateCartUI();
+    showToast("Item removed from cart");
+  }
+
+  function showToast(message) {
+    // Create toast element
+    const toast = document.createElement("div");
+    toast.className = "position-fixed bottom-0 end-0 p-3";
+    toast.style.zIndex = "1100";
+    toast.innerHTML = `
+      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          ${message}
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) return;
+
+    // Here you would typically send the cart to your server
+    console.log("Checking out:", cart);
+    alert(
+      `Order placed! Total: $${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}`,
+    );
+
+    // Clear cart after checkout
+    cart = [];
+    updateCartUI();
+  });
 });
