@@ -1,13 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+var order = require("../modules/order/order.module");
+var menuItem = require("../modules/menuItem/menuItem.module");
 
-/*/* GET home page. 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});*/
-// index page
-router.get('/view', function(req, res, next) {
-    res.render('pages/index');
+router.get("/view", function (req, res, next) {
+  res.render("pages/index");
 });
+
+router.use("/order", order().OrderController);
+router.use("/menuItem", menuItem().MenuItemController);
 
 module.exports = router;
