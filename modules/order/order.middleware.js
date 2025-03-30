@@ -25,7 +25,7 @@
   }
 
   function getOrders(req, res, next) {
-    OrderService.getOrders().then(success).catch(failure);
+    OrderService.fetchOrders().then(success).catch(failure);
 
     function success(data) {
       req.response = data;
