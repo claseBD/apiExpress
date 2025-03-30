@@ -1,0 +1,270 @@
+ame": "Tacos de pastor",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Finas tiras de solomillo de cerdo a la plancha, macerado con piña, naranja, achiote, acompañado con cilantro y cebolla"
+  },
+  {
+    "name": "Tacos de matanza",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Maciza, oreja, morro, cocida a fuego lento, acompañados con cilantro y cebolla"
+  },
+  {
+    "name": "Tacos de rib eye",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Taquitos de entrecot con frijoles y guacamole"
+  },
+  {
+    "name": "Tacos dorados de pollo",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Canutillo de tortilla rellena de pollo y fritas acompañados de nata y lechuga"
+  },
+  {
+    "name": "Tacos de pescado",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Pescado de temporada frito con especias, cebolla, frijoles, aguacate y tomate"
+  },
+  {
+    "name": "Tacos de gambas enchipotladas",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Gambas manceradas con salsa de chipotle, acompañadas de guacamole y cilantro"
+  },
+  {
+    "name": "Tacos de champiñones",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Champiñones a la plancha acompañada de aguacate"
+  },
+  {
+    "name": "Tacos de pato confitado",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Pato confitado, acompañado de una salsa especial de tamarindo"
+  },
+  {
+    "name": "Quesadilla de queso",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de queso fundido."
+  },
+  {
+    "name": "Quesadilla de carne",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de carne a la plancha."
+  },
+  {
+    "name": "Quesadilla especial con carne y queso",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de carne y queso fundido."
+  },
+  {
+    "name": "Quesadilla con queso y chorizo",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de queso fundido y chorizo dorado a la plancha."
+  },
+  {
+    "name": "Quesadilla champiñones y queso",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de champiñones salteados y queso fundido."
+  },
+  {
+    "name": "Quesadilla con queso y gambas",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de queso fundido y gambas maceradas en salsa chipotle."
+  },
+  {
+    "name": "Quesadilla gringa",
+    "price": 4,
+    "description": "Antojitos. Tortilla de harina rellena de carne al pastor, queso fundido y piña."
+  },
+  {
+    "name": "Quesadilla vegetal con o sin queso",
+    "price": 3,
+    "description": "Antojitos. Tortilla de harina rellena de verduras salteadas con opción de queso."
+  },
+  {
+    "name": "Pizzadilla",
+    "price": 12,
+    "description": "Pizzadilla a elegir: carne, champiñones o cochinita, todas llevan queso. Acompañadas de guacamole"
+  },
+  {
+    "name": "Sope de cochinita",
+    "price": 3,
+    "description": "Sope. Base de masa de harina de maiz frita con una crema de frijol, cochinita pibil, cebolla morada y un toque de nata"
+  },
+  {
+    "name": "Sope de tinga de pollo",
+    "price": 3,
+    "description": "Sope. Base de masa de harina de maiz frita con una crema de frijol, pollo guisado con pimientos y cebolla, acompañada de nata y aguacate."
+  },
+  {
+    "name": "Sope de gambas",
+    "price": 3,
+    "description": "Sope. Base de masa de harina de maiz frita con gambas en salsa chipotle acompañadas de guacamole"
+  },
+  {
+    "name": "Sope de chorizo",
+    "price": 3,
+    "description": "Sope. Base de masa de harina de maiz frita con una crema de frijol, chorizo dorado, nata y guacamole"
+  },
+  {
+    "name": "Tostada de tinga",
+    "price": 3,
+    "description": "Tostada. Tortilla crujiente con crema de frijol, aguacate y nata, de pollo guisado con pimientos y cebolla"
+  },
+  {
+    "name": "Tostada de pollo",
+    "price": 3,
+    "description": "Tostada. Tortilla crujiente con crema de frijol, lechuga, aguacate, tomate y nata, de pollo"
+  },
+  {
+    "name": "Tostada de gambas",
+    "price": 4,
+    "description": "Tostada. Tortilla crujiente con guacamole, lechuga y gambas en salsa chipotle"
+  },
+  {
+    "name": "Tostada de champiñones",
+    "price": 3,
+    "description": "Tostada. Tortilla crujiente con guacamole y un toque de chimichurri, de champiñones salteados y a la plancha"
+  },
+  {
+    "name": "Tostada de pescado",
+    "price": 4,
+    "description": "Tostada. Tortilla crujiente con guacamole, lechuga y pescado de temporada frito"
+  },
+  {
+    "name": "Tostada de chamorro",
+    "price": 4,
+    "description": "Tostada. Tortilla crujiente con crema de frijol, lechuga, cebolla y tomate, de la pantorrilla del cerdo al horno"
+  },
+  {
+    "name": "Nachos con guacamole",
+    "price": 9,
+    "description": "Nachos. Con nuestro guacamole del día"
+  },
+  {
+    "name": "Nachos con queso",
+    "price": 9,
+    "description": "Nachos. Con nuestra salsa especial de queso"
+  },
+  {
+    "name": "Nachos mixtos",
+    "price": 12,
+    "description": "Nachos. Con guacamole y queso"
+  },
+  {
+    "name": "Nachos con carne",
+    "price": 14,
+    "description": "Nachos. Queso, carne, guacamole y un toque de picante"
+  },
+  {
+    "name": "Nachos con gambas",
+    "price": 14,
+    "description": "Nachos. Queso, guacamole y nuestras gambas con salsa chipotle"
+  },
+  {
+    "name": "Nachos con chorizo",
+    "price": 14,
+    "description": "Nachos. Frijoles, queso, nata y guacamole"
+  },
+  {
+    "name": "Nachos Rib-Eye",
+    "price": 15,
+    "description": "Nachos. Frijoles, queso, con salsa de pico de gallo, guacamole y entrecot"
+  },
+  {
+    "name": "Nachos con chamorro",
+    "price": 15,
+    "description": "Nachos. Frijoles, queso, con salsa de pico de gallo, guacamole y chamorro"
+  },
+  {
+    "name": "Nachos vegetales",
+    "price": 14,
+    "description": "Nachos. Salsa de pico de gallo con nopales, champiñones, cebolla, pimientos y guacamole"
+  },
+  {
+    "name": "Nachos con mole",
+    "price": 15,
+    "description": "Nachos. Con guacamole, queso, pollo, nata, ajonjolí y bañados en salsa mole"
+  },
+  {
+    "name": "Alambre de ternera",
+    "price": 12,
+    "description": "Alambre. Acompalado de tortilla de maíz, guacamole, queso, bacon, cebolla y pimientos"
+  },
+  {
+    "name": "Alambre de lomo de cerdo",
+    "price": 12,
+    "description": "Alambre. Acompalado de tortilla de maíz, guacamole, queso, bacon, cebolla y pimientos"
+  },
+  {
+    "name": "Alambre de pollo",
+    "price": 12,
+    "description": "Alambre. Acompalado de tortilla de maíz, guacamole, queso, bacon, cebolla y pimientos"
+  },
+  {
+    "name": "Alambre de gambas",
+    "price": 14,
+    "description": "Alambre. Acompalado de tortilla de maíz, guacamole, queso, bacon, cebolla y pimientos"
+  },
+  {
+    "name": "Burrito de pollo",
+    "price": 12,
+    "description": "Burrito. Tortilla de harina rellena de pollo deshebrado, pimiento, cebolla, queso y guacamole"
+  },
+  {
+    "name": "Burrito de ternera",
+    "price": 13,
+    "description": "Burrito. Tortilla de harina rellena de ternera guisada, pimiento, cebolla, crema de frijol, queso y pico de gallo"
+  },
+  {
+    "name": "Burrito de gambas",
+    "price": 14,
+    "description": "Burrito. Tortilla de harina rellena de gambas en salsa chipotle, cebolla, pimiento, queso y guacamole"
+  },
+  {
+    "name": "Burrito vegetal",
+    "price": 12,
+    "description": "Burrito. Tortilla de harina rellena de verduras salteadas, guacamole con o sin queso"
+  },
+  {
+    "name": "Burrito de chamorro",
+    "price": 14,
+    "description": "Burrito. Tortilla de harina rellena de chamorro de cerdo cocido a fuego lento, pimiento, cebolla y queso"
+  },
+  {
+    "name": "Chamorro",
+    "price": 17,
+    "description": "Plato fuerte. Codillo de cerdo horneado en su jugo, acompañado de guacamole, tortillas y cebolla morada"
+  },
+  {
+    "name": "Mole con pollo",
+    "price": 17,
+    "description": "Plato fuerte. Pechuga de pollo acompañada de salsa de mole, elaborada a partir de cacao, chiles, frutos secos, entre otros"
+  },
+  {
+    "name": "Ceviche de pescado",
+    "price": 16,
+    "description": "Plato fuerte. Pescado fresco marinado en jugo de limón con cebolla morada, tomate y cilantro, acompañado de aguacate"
+  },
+  {
+    "name": "Enchiladas",
+    "price": 10,
+    "description": "Plato fuerte. Rojas o verdes. Tortillas rellenas de pollo, gratinadas con queso bañadas en salsa de tomatillo verde o rojo acompañadas de cebolla morada"
+  },
+  {
+    "name": "Enmoladas",
+    "price": 10,
+    "description": "Plato fuerte. Tortillas rellenas de pollo, gratinadas con queso bañadas en salsa de mole y acompañadas de cebolla morada"
+  },
+  {
+    "name": "Gambas enchipotladas",
+    "price": 17,
+    "description": "Plato fuerte. Gambas maceradas en salsa de chipotle y especias, acompañadas de aguacate, cilantro y tortillas"
+  },
+  {
+    "name": "Cazuelitas",
+    "price": 17,
+    "description": "Plato fuerte. Cazuelitas divididas entre cochinita, tinga de pollo y carnitas con acompañantes y tortillas"
+  },
+  {
+    "name": "Salsas extra y acompañantes",
+    "price": 2,
+    "description": "Cualquier elemento extra para acompañar su comida"
+  }
+]
