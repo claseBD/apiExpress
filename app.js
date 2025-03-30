@@ -24,12 +24,27 @@ app.use("/users", UserController);
 app.use(router);
 
 app.get("/", function (req, res) {
-  var pkg = require(path.join(__dirname, "package.json"));
-  res.json({
-    name: pkg.name,
-    version: pkg.version,
-    status: "up",
-  });
+  res.render("pages/index");
+});
+
+// Para testear la página de menu sin mongo
+// app.get("/menu", (req, res) => {
+//     const menuItems = [
+//         { name: "Pizza", price: 12.99, description: "Pizza autentica italiana" },
+//         { name: "Burger", price: 8.99 , description: "La burguer más americana del restaurante"},
+//         { name: "Pasta", price: 10.99 , description: "Tan espagueti como el código"}
+//     ];
+//
+//     res.render("pages/menuItems", { menuItems }); // 🔹 Pasamos menuItems a la vista
+// });
+
+app.get("/menu", function (req, res) {
+  res.render("pages/menu");
+});
+
+
+app.get("/about", function (req, res) {
+  res.render("pages/about");
 });
 
 // catch 404 and forward to error handler
