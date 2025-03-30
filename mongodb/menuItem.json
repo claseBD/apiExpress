@@ -1,4 +1,11 @@
-ame": "Tacos de pastor",
+[
+  {
+    "name": "Tacos de cochinita pibil",
+    "price": 4,
+    "description": "Antojitos. Dos piezas. Pierna de cerdo macerada en achiote, horneahada y deshebrada acompañada de cebolla morada"
+  },
+  {
+    "name": "Tacos de pastor",
     "price": 4,
     "description": "Antojitos. Dos piezas. Finas tiras de solomillo de cerdo a la plancha, macerado con piña, naranja, achiote, acompañado con cilantro y cebolla"
   },
