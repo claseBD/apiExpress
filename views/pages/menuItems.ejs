@@ -1,49 +1,130 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Menu Items</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Items</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      .menu-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+      .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      .price-badge {
+        font-size: 1.1rem;
+        background-color: #198754;
+      }
+      .empty-state {
+        padding: 3rem;
+        text-align: center;
+        color: #6c757d;
+      }
+      .form-container {
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row mb-4">
+        <div class="col-12 text-center">
+          <h1 class="display-4 fw-bold text-primary">
+            <i class="fas fa-utensils me-2"></i>Our Menu
+          </h1>
+          <p class="lead text-muted">Discover our delicious offerings</p>
+        </div>
+      </div>
 
-            .menu-item {
-                border: 1px solid #ccc;
-                padding: 10px;
-                margin: 10px;
-                border-radius: 5px;
-            }
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-8">
+          <button id="show-form-btn" class="btn btn-primary w-100 py-2">
+            <i class="fas fa-plus me-2"></i>Add New Menu Item
+          </button>
+        </div>
+      </div>
 
-            .menu-item h3 {
-                margin: 0;
-            }
+      <div id="add-form" class="row justify-content-center mb-4 d-none">
+        <div class="col-md-8">
+          <div class="form-container shadow-sm">
+            <h3 class="mb-4 text-center" id="form-title" ><i class="fas fa-pencil-alt me-2"></i>Add Item</h3>
+            <form id="menu-item-form">
+              <input type="hidden" id="item-id" value="">
+              <div class="mb-3">
+                <label for="item-name" class="form-label">Item Name</label>
+                <input type="text" class="form-control form-control-lg" id="item-name" placeholder="e.g. Margherita Pizza" required>
+              </div>
+              <div class="mb-3">
+                <label for="item-description" class="form-label">Description</label>
+                <textarea class="form-control" id="item-description" rows="3" placeholder="Describe the item..." required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="item-price" class="form-label">Price</label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" id="item-price" placeholder="0.00" min="0" step="0.01" required>
+                </div>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" id="cancel-form-btn" class="btn btn-outline-secondary me-md-2">
+                  <i class="fas fa-times me-1"></i>Cancel
+                </button>
+                <button type="submit" id="submit-btn" class="btn btn-primary">
+                  <i class="fas fa-save me-1"></i>Save Item
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-            .menu-item p {
-                margin: 5px 0;
-            }
-
-            .menu-item .price {
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body>
-      <h1>Menu Items</h1>
-      <div id="menu-items-container">
+      <div id="menu-items-container" class="row g-4">
         <% if (menuItems && menuItems.length > 0) { %>
           <% menuItems.forEach(item => { %>
-            <div class="menu-item">
-              <h3><%= item.name %></h3>
-              <p><%= item.description %></p>
-              <p class="price">$<%= item.price %></p>
+            <div class="col-md-6 col-lg-4">
+              <div class="card menu-card shadow-sm" data-id="<%= item._id %>">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="card-title h5 mb-3"><%= item.name %></h3>
+                    <span class="badge price-badge rounded-pill">$<%= item.price %></span>
+                  </div>
+                  <p class="card-text text-muted"><%= item.description %></p>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-outline-primary me-2 edit-btn" data-id="<%= item._id %>">
+                      <i class="fas fa-edit me-1"></i>Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn" data-id="<%= item._id %>">
+                      <i class="fas fa-trash me-1"></i>Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           <% }) %>
         <% } else { %>
-          <p>No items found.</p>
+          <div class="col-12">
+            <div class="empty-state">
+              <i class="fas fa-utensils fa-4x mb-3"></i>
+              <h3 class="h4">No Menu Items Found</h3>
+              <p class="text-muted">Click the "Add Menu Item" button to get started</p>
+            </div>
+          </div>
         <% } %>
       </div>
-    </body>
+    </div>
 
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="menuItems.js"></script>
+  </body>
 </html>

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Pizza",
+    "description": "Delicious pizza",
+    "price": 10.99
+  },
+  {
+    "name": "Burger",
+    "description": "Juicy burger",
+    "price": 8.99
+  },
+  {
+    "name": "Salad",
+    "description": "Fresh salad",
+    "price": 5.99
+  },
+  {
+    "name": "Pasta",
+    "description": "Tasty pasta",
+    "price": 7.99
+  }
+]

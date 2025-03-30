@@ -23,7 +23,7 @@
   );
 
   router.put(
-    "/:orderId",
+    "/:menuItemId",
     MenuItemMiddleware.modifyMenuItem,
     function (req, res) {
       res.status(200).json(req.response);
@@ -31,7 +31,7 @@
   );
 
   router.delete(
-    "/:orderId",
+    "/:menuItemId",
     MenuItemMiddleware.removeMenuItem,
     function (req, res) {
       res.status(200).json(req.response);

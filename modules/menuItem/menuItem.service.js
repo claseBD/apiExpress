@@ -12,7 +12,11 @@
   var MenuItemModel = require("./menuItem.module")().MenuItemModel;
 
   function createMenuItem(menuItem) {
-    return MenuItemModel.create(user);
+    try {
+      return MenuItemModel.create(menuItem);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function fetchMenuItems() {
