@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-item h3 {
+            margin: 0;
+        }
+
+        .menu-item p {
+            margin: 5px 0;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu Items</h1>
+    <div id="menu-items-container">
+        <!-- Menu items will be displayed here -->
+    </div>
+
+    <script>
+        function fetchMenuItems() {
+            fetch('http://localhost:3000/api/menuitems')
+                .then(response => response.json())
+                .then(data => {
+                    const menuItemsContainer = document.getElementById('menu-items-container');
+                    menuItemsContainer.innerHTML = '';
+
+                    data.forEach(item => {
+                        const menuItemDiv = document.createElement('div');
+                        menuItemDiv.classList.add('menu-item');
+
+                        menuItemDiv.innerHTML = `
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <p class="price">$${item.price}</p>
+                        `;
+                        menuItemsContainer.appendChild(menuItemDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching menu items:', error);
+                    alert('Error al cargar los elementos del menú.');
+                });
+        }
+        window.onload = fetchMenuItems;
+    </script>
+</body>
+</html>
