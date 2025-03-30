@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head'); %>
+    <title>Sobre Nosotros</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    <!-- Sección de bienvenida -->
+        <div class="container">
+            <h1 class="display-3 fw-bold">Sobre Nosotros</h1>
+            <p class="lead fs-4">Conoce más acerca de nuestra historia y compromiso.</p>
+        </div>
+    </header>
+
+    <!-- Sección de descripción del restaurante -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestra Historia</h2>
+            <p class="text-center">En nuestro restaurante, nos apasiona ofrecer experiencias culinarias únicas, usando ingredientes frescos y recetas tradicionales. Fundado hace más de 10 años, nuestra misión ha sido siempre proporcionar un espacio acogedor donde nuestros clientes disfruten de buena comida y excelente servicio.</p>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contáctanos</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h5>Dirección</h5>
+                    <p>Calle Ficticia 123, Ciudad, País</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Teléfono</h5>
+                    <p>(+123) 456 7890</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Correo Electrónico</h5>
+                    <p>contacto@restaurante.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del mapa (si tienes ubicación en Google Maps) -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Visítanos</h2>
+            <div class="text-center">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5628.100354867049!2d-3.8791420709390283!3d43.449990495198556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1743347064845!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
