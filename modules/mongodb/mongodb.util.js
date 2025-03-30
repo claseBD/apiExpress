@@ -10,7 +10,7 @@
 
   var mongodbConfig = require("../../mongodb/mongodb-config.json").mongodb;
   var menuItemsModel = require("../menuItem/menuItem.model");
-  var json = require("../../mongodb/seeddMenuItems.json");
+  var json = require("../../mongodb/menuItem.json");
 
   function init() {
     var options = {
