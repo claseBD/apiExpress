@@ -1,49 +1,41 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Menu Items</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-
-            .menu-item {
-                border: 1px solid #ccc;
-                padding: 10px;
-                margin: 10px;
-                border-radius: 5px;
-            }
-
-            .menu-item h3 {
-                margin: 0;
-            }
-
-            .menu-item p {
-                margin: 5px 0;
-            }
-
-            .menu-item .price {
-                font-weight: bold;
-            }
-        </style>
+        <%- include('../partials/head'); %>
     </head>
     <body>
-      <h1>Menu Items</h1>
-      <div id="menu-items-container">
-        <% if (menuItems && menuItems.length > 0) { %>
-          <% menuItems.forEach(item => { %>
-            <div class="menu-item">
-              <h3><%= item.name %></h3>
-              <p><%= item.description %></p>
-              <p class="price">$<%= item.price %></p>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+            <div class="container mt-5">
+                <h1 class="text-center mb-4">Menú</h1>
+                <div class="container mt-5">
+                    <h1 class="text-center mb-4 fw-bold text-primary">Nuestro Menú 🍽️</h1>
+                    <div class="row">
+                        <% if (menuItems && menuItems.length > 0) { %>
+                            <% menuItems.forEach(item => { %>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="card shadow-lg mb-4 border-0">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold text-dark"><%= item.name %></h5>
+                                            <p class="card-text text-muted"><%= item.description || "Delicioso platillo" %></p>
+                                            <p class="fw-bold text-success fs-4">$<%= item.price.toFixed(2) %></p>
+                                            <button class="btn btn-primary w-100">Ordenar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <div class="col-12 text-center">
+                                <p class="alert alert-warning">No hay elementos en el menú.</p>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
-          <% }) %>
-        <% } else { %>
-          <p>No items found.</p>
-        <% } %>
-      </div>
     </body>
 
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
 </html>

@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <%- include('../partials/head'); %>
+    <title>Bienvenido al Restaurante</title>
 </head>
-<body class="container">
+<body>
+    <!-- Sección de bienvenida -->
+        <div class="container">
+            <h1 class="display-3 fw-bold">¡Bienvenido a Nuestro Restaurante!</h1>
+            <p class="lead fs-4">Donde los sabores se encuentran con la pasión.</p>
+            <a href="/menu" class="btn btn-lg btn-primary mt-3">Ver el Menú</a>
+        </div>
+    </header>
 
-<header>
-    <%- include('../partials/header'); %>
-</header>
+    <!-- Sección de descripción -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>¿Por qué elegirnos?</h2>
+                    <p>Ofrecemos una experiencia única con ingredientes frescos y platos elaborados con amor. Ya sea que busques comida rápida o una cena elegante, tenemos algo para ti.</p>
+                </div>
+                <div class="col-lg-6">
+                    <h2>Visítanos</h2>
+                    <p>Ubicados en el corazón de la ciudad, te esperamos con un ambiente acogedor y un servicio excepcional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<main>
-    <div class="jumbotron">
-        <h1>Ingeniería de Software II: </h1>
-         <h1>Realmente ¿Cómo funciona JavaScript?</h1>
-        <p>Ahora podemos utilizar EJS como motor de vistas, pero también podríamos utilizar Jade</p>
-    </div>
-
-</main>
-
-<footer>
-    <%- include('../partials/footer'); %>
-</footer>
-
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3">
+        <%- include('../partials/footer'); %>
+    </footer>
 </body>
 </html>
