@@ -21,6 +21,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 MongoDBUtil.init();
+MongoDBUtil.seedMenuItems();
 
 app.use("/users", UserController);
 app.use(router);

@@ -1,43 +1,63 @@
 (function () {
-    'use strict';
+  "use strict";
 
-    module.exports = {
-        init: init
+  module.exports = {
+    init: init,
+    seedMenuItems: seedMenuItems,
+  };
+
+  var mongoose = require("mongoose");
+
+  var mongodbConfig = require("../../mongodb/mongodb-config.json").mongodb;
+  var menuItemsModel = require("../menuItem/menuItem.model");
+  var json = require("../../mongodb/seeddMenuItems.json");
+
+  function init() {
+    var options = {
+      promiseLibrary: require("bluebird"),
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     };
 
-    var mongoose = require('mongoose');
+    var connectionString = prepareConnectionString(mongodbConfig);
 
-    var mongodbConfig = require('../../mongodb/mongodb-config.json').mongodb;
+    mongoose
+      .connect(connectionString, options)
+      .then(function (result) {
+        console.log("MongoDB connection successful. DB: " + connectionString);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        console.log(
+          "Error occurred while connecting to DB: : " + connectionString,
+        );
+      });
+  }
 
-    function init() {
-        var options = {
-            promiseLibrary: require('bluebird'),
-            useNewUrlParser: true,
-			useUnifiedTopology: true 
-        };
+  function prepareConnectionString(config) {
+    var connectionString = "mongodb://";
 
-        var connectionString = prepareConnectionString(mongodbConfig);
-       
-        mongoose.connect(connectionString, options)
-            .then(function (result) {
-                console.log("MongoDB connection successful. DB: " + connectionString);
-            })
-            .catch(function (error) {
-                console.log(error.message);
-                console.log("Error occurred while connecting to DB: : " + connectionString);
-            });
+    if (config.user) {
+      connectionString += config.user + ":" + config.password + "@";
     }
 
-    function prepareConnectionString(config) {
-        var connectionString = 'mongodb://';
+    connectionString += config.server + "/" + config.database;
 
-        if (config.user) {
-            connectionString += config.user + ':' + config.password + '@';
-        }
+    return connectionString;
+  }
 
-        connectionString += config.server + '/' + config.database;
-
-        return connectionString;
-    }
-
+  function seedMenuItems() {
+    menuItemsModel
+      .deleteMany({})
+      .then(function () {
+        return menuItemsModel.insertMany(json);
+      })
+      .then(function () {
+        console.log("Menu items seeded successfully.");
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        console.log("Error occurred while seeding menu items.");
+      });
+  }
 })();
