@@ -7,7 +7,7 @@ router.get("/view", function (req, res, next) {
   res.render("pages/index");
 });
 
-router.use("/order", order().OrderController);
-router.use("/menuItem", menuItem().MenuItemController);
+router.use("/orders", order().OrderController);
+router.use("/menuItems", menuItem().MenuItemController);
 
 module.exports = router;

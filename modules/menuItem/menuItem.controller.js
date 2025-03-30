@@ -11,7 +11,7 @@
   });
 
   router.get("/", MenuItemMiddleware.getMenuItems, function (req, res) {
-    res.status(200).json(req.response);
+    res.status(200).render("pages/menuItems", { menuItems: req.response });
   });
 
   router.get(
